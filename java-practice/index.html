@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Practice — TCS IPA</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header id="top-bar">
+    <div id="top-bar-inner">
+      <button id="menu-toggle-btn" class="icon-btn" aria-label="Toggle filters" aria-expanded="false">☰</button>
+      <h1 id="site-title">Java Practice <span id="site-title-sub">TCS IPA / NQT</span></h1>
+      <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle dark/light theme" title="Toggle theme">🌓</button>
+    </div>
+  </header>
+
+  <div id="layout">
+
+    <aside id="sidebar">
+      <div class="sidebar-section">
+        <label for="search-input" class="sidebar-label">Search</label>
+        <input type="search" id="search-input" placeholder="Search title or description…" autocomplete="off">
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Category</div>
+        <div id="category-filters" class="filter-list"><!-- populated by script.js --></div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Difficulty</div>
+        <div id="difficulty-filters" class="filter-list">
+          <label class="filter-chip" data-difficulty="Easy">
+            <input type="checkbox" class="difficulty-checkbox" value="Easy" checked>
+            <span class="chip-dot chip-easy"></span>Easy
+          </label>
+          <label class="filter-chip" data-difficulty="Medium">
+            <input type="checkbox" class="difficulty-checkbox" value="Medium" checked>
+            <span class="chip-dot chip-medium"></span>Medium
+          </label>
+          <label class="filter-chip" data-difficulty="Hard">
+            <input type="checkbox" class="difficulty-checkbox" value="Hard" checked>
+            <span class="chip-dot chip-hard"></span>Hard
+          </label>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <label class="filter-chip">
+          <input type="checkbox" id="solved-only-checkbox">
+          Show solved only
+        </label>
+      </div>
+
+      <div class="sidebar-section" id="progress-section">
+        <div class="sidebar-label">Progress</div>
+        <div id="progress-text">Solved 0 / 0</div>
+        <div id="progress-bar-track">
+          <div id="progress-bar-fill"></div>
+        </div>
+        <button id="reset-progress-btn" class="secondary-btn">Reset progress</button>
+      </div>
+    </aside>
+
+    <div id="sidebar-backdrop"></div>
+
+    <main id="main-content">
+
+      <div id="error-banner" class="error-banner hidden" role="alert"></div>
+
+      <section id="list-view">
+        <div id="list-status" class="list-status"></div>
+        <div id="question-grid" class="question-grid"><!-- populated by script.js --></div>
+        <div id="empty-state" class="empty-state hidden">No questions match your filters.</div>
+      </section>
+
+      <section id="detail-view" class="hidden">
+        <button id="back-btn" class="secondary-btn">&larr; Back to list</button>
+
+        <div class="detail-header">
+          <h2 id="detail-title"></h2>
+          <div class="detail-badges">
+            <span id="detail-category-badge" class="badge badge-category"></span>
+            <span id="detail-difficulty-badge" class="badge"></span>
+          </div>
+        </div>
+
+        <button id="solved-toggle-btn" class="solved-btn">Mark as solved</button>
+
+        <h3 class="section-heading">Problem</h3>
+        <pre id="detail-description" class="description-block"></pre>
+
+        <h3 class="section-heading">Solution</h3>
+        <div id="file-tabs" class="file-tabs hidden"><!-- populated when files.length > 1 --></div>
+
+        <div id="reveal-container">
+          <button id="reveal-btn">Reveal Solution</button>
+        </div>
+
+        <pre id="code-block" class="code-block hidden"><code id="code-content"></code></pre>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
