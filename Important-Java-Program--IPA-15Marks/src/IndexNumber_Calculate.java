@@ -20,14 +20,14 @@ public class IndexNumber_Calculate {
         Scanner scan=new Scanner(System.in);
         String str=scan.nextLine();
         char ch=scan.nextLine().charAt(0);
-        int index=0;
+        int index=-1;
         for(int i=0;i<str.length();i++){
             if(str.charAt(i)==ch){
                 index=i;
                 break;
             }
         }
-        if(index==0){
+        if(index==-1){
             System.out.println("NA");
         }
         else{
